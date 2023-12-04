@@ -1,0 +1,40 @@
+ALGORITHM Problem1
+VAR
+    n,i,j : INTEGER:= 0;
+    set1 : ARRAY_OF INTEGER[n];
+    set2 : ARRAY_OF INTEGER[n];
+    sum : INTEGER := 0;
+BEGIN
+
+    Write("Type how many numbers you want to enter in both sets: ");
+    Read(n);
+
+    WHILE (n<=0) DO
+        Write("Type a valid positive number: ");
+        Read(n);
+    END_WHILE
+
+
+    FOR i FROM 0 TO n-1 STEP 1 DO
+
+        Write("Write the numbers for the first  set:");
+        Read(set1[i]);
+
+        Write("Write the numbers for the second  set:");
+        Read(set2[i]);
+
+    END_FOR
+
+
+    FOR i FROM 0 TO n-1 STEP 1 DO 
+        FOR j FROM i TO n-1 STEP step  DO
+            IF (set1[i]!=set2[j]) THEN
+                sum=sum+set1[i];
+            END_IF
+        END_FOR
+    END_FOR
+
+
+    Write("The sum is: " , sum);
+    
+END

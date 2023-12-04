@@ -1,0 +1,56 @@
+ALGORITHM Problem2
+VAR
+    ps: FLOAT;
+    n,i,j: INTEGER := 0;
+    m: ARRAY_OF INTEGER[1][n];;
+    IR : INTEGER;
+    
+BEGIN
+
+    Write("Type 'n' a pair number: ");
+    Read(n);
+
+    WHILE ((n%2) != 0) DO
+        Write("Type 'n' a pair number: ");
+        Read(n);
+    END_WHILE
+
+    m[0][0] := "Vector 1";
+    m[1][0] := "Vector 2";
+
+    FOR i FROM 0 TO 1 STEP 1 DO
+
+        FOR j FROM 1 TO n-1 STEP 1 DO 
+
+            IF (i==0) THEN
+                Write("Type in the value for the first vector: ");
+                Read(m[i][j]);
+            END_IF
+
+            IF (i==1) THEN
+                Write("Type in the value for the second vector: ");
+                Read(m[i][j]);
+            END_IF
+
+            IF ((dot_product(m: ARRAY_OF INTEGER[i][j], ps:FLOAT,n:INTEGER))==0) THEN
+                Write("They are orthogonal!" , ps);
+            ELSE
+                Write("The ps is: " , ps);
+            END_IF
+
+        END_FOR
+
+    END_FOR
+
+END
+
+
+
+PROCEDURE dot_product(m: ARRAY_OF INTEGER[1][n], ps:FLOAT, n:INTEGER)
+VAR
+    i,j=:INTEGER:=0;
+BEGIN
+    FOR j FROM 1 TO n-1 STEP 1 DO
+        ps = m[0][j]*m[1][j];
+    END_FOR
+END
